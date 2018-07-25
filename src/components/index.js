@@ -2,8 +2,8 @@ import React,{Component} from 'react';
 import Tree from '../tree';
 import TreeNode from '../tree/treenode';
 
-export default class App extends Component {
-	componentWillMount(){
+export default class MainApp extends Component {
+	render(){
 		const tree = new Tree(34);
 		tree.root.left  = new TreeNode(23);
 		tree.root.right = new TreeNode(92);
@@ -11,18 +11,13 @@ export default class App extends Component {
 		tree.root.left.right = new TreeNode(4);
 		tree.root.left.right.left = new TreeNode(16);
 		tree.root.left.right.right = new TreeNode(9);
-		console.log("Preorder Traversal:-");
-		tree.preorder(tree.root);
-		console.log("Inorder Traversal:-");
-		tree.inorder(tree.root);
-		console.log("Postrder Traversal:-");
-		tree.postorder(tree.root);
-		console.log("Bfs Traversal:-");
-		tree.bfs();
-	}
-	render(){
 		return (
-			<div>Traversal</div>
+			<div>
+				<button onClick={()=> tree.bfs(tree.root)}>BFS</button>
+				<button onClick={()=> tree.preorder(tree.root)}>Preorder</button>
+				<button onClick={()=> tree.inorder(tree.root)}>Inorder</button>
+				<button onClick={()=> tree.postorder(tree.root)}>Postorder</button>
+			</div>
 		);
 	}
 }

@@ -24,6 +24,8 @@
     "css-loader": "^1.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "style-loader": "^0.21.0",
     "webpack": "^3.5.3",
     "webpack-dev-server": "^2.7.1"

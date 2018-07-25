@@ -10,7 +10,7 @@ class Tree {
 	}
 	preorder(rootNode){
 		/*
-			base condition of recursion,
+			Base condition of recursion,
 			if no node to visit simply 
 			return.
 		*/
