@@ -1,23 +1,31 @@
+import '../../dist/css/main.css';
 import React,{Component} from 'react';
-import Tree from '../tree';
-import TreeNode from '../tree/treenode';
+import Traversed from '../containers/traversed';
+import Options from '../containers/options';
+import {connect} from 'react-redux';
+import {createTree} from '../actions';
 
-export default class MainApp extends Component {
+class MainApp extends Component {
+	componentWillMount(){
+		this.props.createTree();
+	}
 	render(){
-		const tree = new Tree(34);
-		tree.root.left  = new TreeNode(23);
-		tree.root.right = new TreeNode(92);
-		tree.root.left.left = new TreeNode(12);
-		tree.root.left.right = new TreeNode(4);
-		tree.root.left.right.left = new TreeNode(16);
-		tree.root.left.right.right = new TreeNode(9);
 		return (
-			<div>
-				<button onClick={()=> tree.bfs(tree.root)}>BFS</button>
-				<button onClick={()=> tree.preorder(tree.root)}>Preorder</button>
-				<button onClick={()=> tree.inorder(tree.root)}>Inorder</button>
-				<button onClick={()=> tree.postorder(tree.root)}>Postorder</button>
+			<div className = "row">
+				<div className = "col-6">Tree Visuals Here</div>
+				<div className = "col-6">
+					<div className="row">
+						<div className="col-12">
+							<Options/>
+						</div>
+						<div className="col-12">
+							<Traversed/>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}
 }
+
+export default connect(null,{createTree})(MainApp);
