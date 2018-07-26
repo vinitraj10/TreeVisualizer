@@ -11,7 +11,6 @@
 [class*="col-"] {
     float: left;
     padding: 15px;
-    border: 1px solid red;
 }
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -27,9 +26,6 @@
 .col-12 {width: 100%;}
 
 .btn {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -37,6 +33,13 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
 }
 
 .play {
@@ -55,4 +58,22 @@
   	background: #71b65b;
   	font-size: 20px;
   	color:#fff;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
 }
