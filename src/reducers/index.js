@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import tree from './tree';
+import traversedReducer from './traversed-reducer';
+import treeReducer from './tree-reducer';
 
 const rootReducer = combineReducers({
-	root:tree,
+	tree:treeReducer,
+	traversed:traversedReducer,
 })
 
 export default rootReducer;
