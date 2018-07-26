@@ -7,7 +7,8 @@ import {
 	preOrder,
 	inOrder,
 	postOrder,
-	bfs
+	bfs,
+	clearOutput
 } from '../actions';
 
 const options = [
@@ -26,6 +27,7 @@ class Options extends Component {
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.traversal = this.traversal.bind(this);
+		this.renderButton = this.renderButton.bind(this);
 	}
 
 	handleChange (selectedOption) {
@@ -33,6 +35,7 @@ class Options extends Component {
   	}
 
   	traversal () {
+  		this.props.clearOutput();
   		const {selectedOption} = this.state;
   		const {rootNode} = this.props.tree;
   		if(selectedOption){
@@ -55,9 +58,20 @@ class Options extends Component {
   			console.log("Render error");
   		}
   	}
-
+  	renderButton(length){
+  		if(length==0 || length==7){
+  			return(
+  				<button className="btn play" onClick={this.traversal}><span>Play</span></button>
+  			)
+  		}
+  		return(
+  			<button className="btn play" disabled><span>Play</span></button>
+  		)
+  	}
 	render(){
 		const {rootNode} = this.props.tree;
+		const {traversedList} = this.props.traversed;
+		const length = traversedList.length;
 		return (
 			<div>
 				 <Select
@@ -65,7 +79,7 @@ class Options extends Component {
 			        onChange={this.handleChange}
 			        options={options}
 			    />
-			    <button className="btn play" onClick={this.traversal}><span>Play</span></button>
+			    {this.renderButton(length)}
 		    </div>
 		);	
 	}
@@ -81,6 +95,7 @@ class Options extends Component {
 function mapStateToProps(state){
 	return {
 		tree : state.tree,
+		traversed : state.traversed
 	};
 }
 
@@ -96,7 +111,8 @@ function mapDispatchToProps(dispatch){
 			preOrder,
 			inOrder,
 			postOrder,
-			bfs
+			bfs,
+			clearOutput
 		}, dispatch);
 }
 

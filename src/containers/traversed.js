@@ -1,19 +1,22 @@
 import React,{Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+
 
 class Traversed extends Component {
-	renderEach(current,index){
-		return(
-			<span key={index} className="node">{current}</span>
-		);
-	}
 	render(){
 		const {traversedList} = this.props.traversed;
-		if(traversedList){
+		if(traversedList.length>0){
 			return (
 				<div className="col-12">
-					{traversedList.map(this.renderEach.bind(this))}
+					<TransitionGroup component={null}>
+						{traversedList.map((val, index) => (
+							<CSSTransition key={index} timeout={500} classNames="fade">	
+								<span key={index} className="node">{val}</span>
+							</CSSTransition>	
+						))}
+					</TransitionGroup>
 				</div>
 			);
 		}
