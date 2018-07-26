@@ -1,7 +1,17 @@
-## Tree Visualizer
-It is an Application which is built on top of ReactJs and Helps to Visualize the different tree traversal technique like DFS(preoder,inorder,postorder),level order traversal(BFS).
+# Tree Traversal Visualizer
 
-## INSTALLATION
+A React Application which helps to visualize the basic tree traversal techniques
+[Demo](https://vinitraj10.github.io/TreeVisualizer/)
+```
+1. Level Order Traversal
+2. Pre-Order Traversal
+3. In-Order Traversal
+4. Post-Order Traversal
+
+```
+
+
+## Installation
 ```
 git clone https://github.com/vinitraj10/TreeVisualizer
 cd TreeVisualizer
