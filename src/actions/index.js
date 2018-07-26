@@ -1,9 +1,9 @@
-'use strict'
 import Tree from '../tree';
 import TreeNode from '../tree/treenode';
 import {
 	TREE_TRAVERSAL,
-	SET_ROOTNODE
+	SET_ROOTNODE,
+	CLEAR_OUTPUT
 } from './types';
 
 export function createTree(){
@@ -30,7 +30,16 @@ export function preOrder(rootNode) {
 		if(node.right) stack.push(node.right);
 		if(node.left) stack.push(node.left);
 	}
-	return {type:TREE_TRAVERSAL,payload:traversed};
+
+	return (dispatch) => {
+		traversed.forEach((val,index)=>{
+			setTimeout(()=>{
+				dispatch({type:TREE_TRAVERSAL,payload:val});
+			},1300*index);
+			
+		});
+		
+	}
 }
 
 export function inOrder(rootNode) {
@@ -49,7 +58,15 @@ export function inOrder(rootNode) {
 			node = node.right;
 		}
 	}
-	return {type:TREE_TRAVERSAL,payload:traversed};
+	return (dispatch) => {
+		traversed.forEach((val,index)=>{
+			setTimeout(()=>{
+				dispatch({type:TREE_TRAVERSAL,payload:val});
+			},2000*index);
+			
+		});
+		
+	}
 }
 
 export function postOrder(rootNode) {
@@ -76,7 +93,15 @@ export function postOrder(rootNode) {
 			}
 		}
 	}
-	return {type:TREE_TRAVERSAL,payload:traversed};
+	return (dispatch) => {
+		traversed.forEach((val,index)=>{
+			setTimeout(()=>{
+				dispatch({type:TREE_TRAVERSAL,payload:val});
+			},2000*index);
+			
+		});
+		
+	}
 }
 
 export function bfs(rootNode){
@@ -93,5 +118,19 @@ export function bfs(rootNode){
 			queue.push(node.right); // Pushing right child
 			//console.log(queue);
 	}
-	return {type:TREE_TRAVERSAL,payload:traversed};
+	return (dispatch) => {
+		traversed.forEach((val,index)=>{
+			setTimeout(()=>{
+				dispatch({type:TREE_TRAVERSAL,payload:val});
+			},2000*index);
+			
+		});
+		
+	}
+}
+
+export function clearOutput(){
+	return (dispatch) => {
+		dispatch({type:CLEAR_OUTPUT});
+	}
 }
