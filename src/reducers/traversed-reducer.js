@@ -1,15 +1,21 @@
-import {TREE_TRAVERSAL} from '../actions/types';
+import {
+	TREE_TRAVERSAL,
+	CLEAR_OUTPUT
+} from '../actions/types';
 
 const initialState = {
 	//rootNode:null,
-	traversedList : null
+	traversedList : []
 }
 
 
 export default function(state=initialState,action){
 	switch(action.type){
 		case TREE_TRAVERSAL:
-			return {...state,traversedList:action.payload};
+			return {...state,traversedList:[...state.traversedList,action.payload]};
+			break;
+		case CLEAR_OUTPUT:
+			return {...state,traversedList:[]}
 			break;
 	}
 	return state;
