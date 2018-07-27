@@ -136,22 +136,8 @@ export function clearOutput(){
 	}
 }
 
-export function traverseTree(node,data){
+export function updateDiagram(data){
 	return (dispatch) => {
-		if(node==data.name){
-			data.circleProps = { fill: "blue" };
-			dispatch({type:SET_DATA,payload:data});
-		}
-		else{
-
-			let x=data.children;
-			x.forEach((obj,index)=>{
-				if(obj.name==node){
-					obj.circleProps = {fill:"blue"};
-				}
-			});
-			dispatch({type:SET_DATA,payload:data});	
-		}
-		
-	}
+		dispatch({type:SET_DATA,payload:data});
+	}	
 }
