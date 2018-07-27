@@ -3,7 +3,8 @@ import TreeNode from '../tree/treenode';
 import {
 	TREE_TRAVERSAL,
 	SET_ROOTNODE,
-	CLEAR_OUTPUT
+	SET_DATA,
+	RESET
 } from './types';
 
 export function createTree(){
@@ -35,7 +36,7 @@ export function preOrder(rootNode) {
 		traversed.forEach((val,index)=>{
 			setTimeout(()=>{
 				dispatch({type:TREE_TRAVERSAL,payload:val});
-			},1300*index);
+			},1500*index);
 			
 		});
 		
@@ -131,6 +132,26 @@ export function bfs(rootNode){
 
 export function clearOutput(){
 	return (dispatch) => {
-		dispatch({type:CLEAR_OUTPUT});
+		dispatch({type:RESET});
+	}
+}
+
+export function traverseTree(node,data){
+	return (dispatch) => {
+		if(node==data.name){
+			data.circleProps = { fill: "blue" };
+			dispatch({type:SET_DATA,payload:data});
+		}
+		else{
+
+			let x=data.children;
+			x.forEach((obj,index)=>{
+				if(obj.name==node){
+					obj.circleProps = {fill:"blue"};
+				}
+			});
+			dispatch({type:SET_DATA,payload:data});	
+		}
+		
 	}
 }
