@@ -77,3 +77,25 @@ button[disabled]{
   opacity: 0.01;
   transition: opacity 500ms ease-in;
 }
+
+svg.custom .node circle {
+  stroke: #2593B8;
+  stroke-width: 1.5px;
+}
+
+
+svg.custom .node text {
+  font-size: 20px;
+  background-color: #000;
+  fill: #000;
+}
+
+svg.custom .node {
+  cursor: pointer;
+}
+
+svg.custom path.link {
+  fill: none;
+  stroke: #2593B8;
+  stroke-width: 1.5px;
+}
