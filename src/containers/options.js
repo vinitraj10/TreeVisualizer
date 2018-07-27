@@ -38,19 +38,20 @@ class Options extends Component {
   		this.props.clearOutput();
   		const {selectedOption} = this.state;
   		const {rootNode} = this.props.tree;
+  		const {data} = this.props;
   		if(selectedOption){
   			switch(selectedOption.value){
   				case 'BFS':
-  					this.props.bfs(rootNode);
+  					this.props.bfs(rootNode,data);
   					break;
   				case 'PREORDER':
-  					this.props.preOrder(rootNode);
+  					this.props.preOrder(rootNode,data);
   					break;
   				case 'INORDER':
-  					this.props.inOrder(rootNode);
+  					this.props.inOrder(rootNode,data);
   					break;
   				case 'POSTORDER':
-  					this.props.postOrder(rootNode);
+  					this.props.postOrder(rootNode,data);
   					break;
   			}
   		}
@@ -70,8 +71,8 @@ class Options extends Component {
   	}
 	render(){
 		const {rootNode} = this.props.tree;
-		const {traversedList} = this.props.traversed;
-		const length = traversedList.length;
+		const {list} = this.props.traversed;
+		const length = list.length;
 		return (
 			<div>
 				 <Select
@@ -95,7 +96,8 @@ class Options extends Component {
 function mapStateToProps(state){
 	return {
 		tree : state.tree,
-		traversed : state.traversed
+		traversed : state.traversed,
+		data : state.dgmData.data
 	};
 }
 
