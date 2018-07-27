@@ -6,12 +6,12 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 class Traversed extends Component {
 	render(){
-		const {traversedList} = this.props.traversed;
-		if(traversedList.length>0){
+		const {list} = this.props.traversed;
+		if(list.length>0){
 			return (
 				<div className="col-12">
 					<TransitionGroup component={null}>
-						{traversedList.map((val, index) => (
+						{list.map((val, index) => (
 							<CSSTransition key={index} timeout={500} classNames="fade">	
 								<span key={index} className="node">{val}</span>
 							</CSSTransition>	
