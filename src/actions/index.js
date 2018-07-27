@@ -8,8 +8,8 @@ import {
 } from './types';
 
 export function createTree(){
-	const tree = new Tree('34');
-	tree.root.left  = new TreeNode('23');
+	const tree = new Tree('34'); // Tree intialized
+	tree.root.left  = new TreeNode('23'); // Node insertions from here
 	tree.root.right = new TreeNode('92');
 	tree.root.left.left = new TreeNode('12');
 	tree.root.left.right = new TreeNode('04');
@@ -61,10 +61,14 @@ export function inOrder(rootNode) {
 	}
 	return (dispatch) => {
 		traversed.forEach((val,index)=>{
+			/* 
+				To change the state of traversed list 
+				at every 2 secs so that animation can
+				work. 
+			*/
 			setTimeout(()=>{
 				dispatch({type:TREE_TRAVERSAL,payload:val});
 			},2000*index);
-			
 		});
 		
 	}
@@ -132,12 +136,23 @@ export function bfs(rootNode){
 
 export function clearOutput(){
 	return (dispatch) => {
+		/*
+			Clearing the Components
+			State,Show that it can 
+			be reused normally.
+		*/
 		dispatch({type:RESET});
 	}
 }
 
 export function updateDiagram(data){
 	return (dispatch) => {
+		/*
+			Updating the State of 
+			tree-diagram from data
+			parameter passed from
+			livetree Compoenent
+		*/
 		dispatch({type:SET_DATA,payload:data});
 	}	
 }
