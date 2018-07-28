@@ -1,3 +1,6 @@
+#linter
+.eslintrc
+
 # Logs
 logs
 *.log
