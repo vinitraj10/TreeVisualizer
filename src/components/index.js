@@ -1,28 +1,28 @@
-import '../../dist/css/main.css';
-import React,{Component} from 'react';
-import Traversed from '../containers/traversed';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import TraversedList from '../containers/traversedlist';
 import Options from '../containers/options';
-import Livetree from '../containers/livetree';
-import {connect} from 'react-redux';
-import {createTree} from '../actions';
+import TreeDiagram from '../containers/treediagram';
+import { createTree } from '../actions';
+import '../../dist/css/main.css';
 
 class MainApp extends Component {
-	componentWillMount(){
+	componentWillMount() {
 		this.props.createTree();
 	}
-	render(){
+	render() {
 		return (
-			<div className = "row">
-				<div className = "col-6">
-					<Livetree/>
+			<div className="row">
+				<div className="col-6">
+					<TreeDiagram />
 				</div>
-				<div className = "col-6">
+				<div className="col-6">
 					<div className="row">
 						<div className="col-12">
-							<Options/>
+							<Options />
 						</div>
 						<div className="col-12">
-							<Traversed/>
+							<TraversedList />
 						</div>
 					</div>
 				</div>
@@ -32,4 +32,5 @@ class MainApp extends Component {
 }
 
 
-export default connect(null,{createTree})(MainApp);
+// createTree is single action to be connected in  
+export default connect(null, { createTree })(MainApp);

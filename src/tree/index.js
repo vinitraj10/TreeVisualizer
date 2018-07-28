@@ -1,4 +1,10 @@
-import TreeNode from './treenode';
+class Node {
+	constructor(val) {
+		this.val = val;
+		this.left = null;
+		this.right = null;
+	}
+}
 
 class Tree {
 	constructor(rootval) {
@@ -6,8 +12,8 @@ class Tree {
 			Tree root node initialization so,
 			that it can be easily traversed.
 		*/
-		this.root = new TreeNode(rootval); 
+		this.root = new Node(rootval); 
 	}
 }
 
-export default Tree;
+export { Tree, Node };

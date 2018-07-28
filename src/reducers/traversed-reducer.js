@@ -4,19 +4,17 @@ import {
 } from '../actions/types';
 
 const initialState = {
-	//rootNode:null,
-	list : []
-}
+	list: []
+};
 
 
-export default function(state=initialState,action){
-	switch(action.type){
+export default function (state = initialState, action) {
+	switch (action.type) {
 		case TREE_TRAVERSAL:
-			return {...state,list:[...state.list,action.payload]};
-			break;
+			return { ...state, list: [...state.list, action.payload] };
 		case RESET:
-			return {...state,list:[]}
-			break;
+			return { ...state, list: [] };
+		default:
+			return state;
 	}
-	return state;
 }
