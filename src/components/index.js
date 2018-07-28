@@ -22,6 +22,7 @@ class MainApp extends Component {
 							<Options />
 						</div>
 						<div className="col-12">
+							<h2 className="heading">Order Of Traversal</h2>
 							<TraversedList />
 						</div>
 					</div>
