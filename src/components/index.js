@@ -6,7 +6,7 @@ import TreeDiagram from '../containers/treediagram';
 import { createTree } from '../actions';
 import '../../dist/css/main.css';
 
-class MainApp extends Component {
+class App extends Component {
 	componentWillMount() {
 		this.props.createTree();
 	}
@@ -34,4 +34,4 @@ class MainApp extends Component {
 
 
 // createTree is single action to be connected in  
-export default connect(null, { createTree })(MainApp);
+export default connect(null, { createTree })(App);

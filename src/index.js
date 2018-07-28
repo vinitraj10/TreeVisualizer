@@ -9,12 +9,12 @@ import reducers from './reducers';
 
 import ReduxThunk from "redux-thunk";
 
-import MainApp from './components';
+import App from './components';
 
 const store = applyMiddleware(ReduxThunk)(createStore);
 
 render(
 	<Provider store={store(reducers)}>
-		<MainApp/>
+		<App/>
 	</Provider>
 	,document.getElementById('root'));
