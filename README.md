@@ -1,7 +1,7 @@
 # Tree Traversal Visualizer
 
 A React Application which helps to visualize the basic tree traversal techniques
-[Demo](https://vinitraj10.github.io/TreeVisualizer/)
+[Live Demo](https://vinitraj10.github.io/TreeVisualizer/)
 
 ## Demo
 ![](https://raw.githubusercontent.com/vinitraj10/TreeVisualizer/master/demo.gif)
